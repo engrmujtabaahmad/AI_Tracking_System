@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+    <style>
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .folium-map {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        #map {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+
+        .leaflet-container {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e48257553d8339e065fb6ef893d63781 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0vh;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div id="accident-info-panel"
+         style="
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+
+            background: white;
+            padding: 16px 20px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.25);
+
+            font-family: Arial, sans-serif;
+
+            min-width: 270px;
+
+            line-height: 1.5;
+         ">
+
+        <div style="
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        ">
+            🚨 Accident Response
+        </div>
+
+        <div style="
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        ">
+
+            <b>Accident Location</b><br>
+
+            31.5204, 74.3587
+
+        </div>
+
+        <div style="
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        ">
+
+            <b>Nearest Hospital</b><br>
+
+            🏥 Hijaz Hospital Lahore
+
+        </div>
+
+        <div style="
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        ">
+
+            <b>Hospital Distance:</b>
+            1.36 km<br>
+
+            <b>Road Distance:</b>
+            1.93 km<br>
+
+            <b>Estimated Time:</b>
+            2.69 min
+
+        </div>
+
+        <div style="
+            color: #c0392b;
+            font-weight: bold;
+        ">
+            🚑 Emergency response required
+        </div>
+
+    </div>
+    
+    
+            <div class="folium-map" id="map_e48257553d8339e065fb6ef893d63781" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e48257553d8339e065fb6ef893d63781 = L.map(
+                "map_e48257553d8339e065fb6ef893d63781",
+                {
+                    center: [31.51785625, 74.35217355],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_e48257553d8339e065fb6ef893d63781);
+
+            
+
+        
+    
+            var tile_layer_ba5a0612b0c74a48b69f40b915247546 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ba5a0612b0c74a48b69f40b915247546.addTo(map_e48257553d8339e065fb6ef893d63781);
+        
+    
+            var marker_adfa6035552cbb5e14989e4b1ccf3ef9 = L.marker(
+                [31.5204, 74.3587],
+                {
+}
+            ).addTo(map_e48257553d8339e065fb6ef893d63781);
+        
+    
+            var icon_a22243e31ee380d9da3a170b7625bda1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "warning-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b23ab2b341975df244d343e27278b82 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ad2bbb2d08586e278e48005975b22813 = $(`<div id="html_ad2bbb2d08586e278e48005975b22813" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; min-width: 200px;">         <h4 style="margin-bottom: 8px;">             🚨 Accident Location         </h4>          <b>Latitude:</b> 31.5204<br>         <b>Longitude:</b> 74.3587     </div>     </div>`)[0];
+                popup_4b23ab2b341975df244d343e27278b82.setContent(html_ad2bbb2d08586e278e48005975b22813);
+            
+        
+
+        marker_adfa6035552cbb5e14989e4b1ccf3ef9.bindPopup(popup_4b23ab2b341975df244d343e27278b82)
+        ;
+
+        
+    
+    
+            marker_adfa6035552cbb5e14989e4b1ccf3ef9.bindTooltip(
+                `<div>
+                     🚨 Accident Location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_adfa6035552cbb5e14989e4b1ccf3ef9.setIcon(icon_a22243e31ee380d9da3a170b7625bda1);
+            
+    
+            var marker_0a81b2eb2866fc3f8e043db5c3e8516f = L.marker(
+                [31.5153125, 74.3456471],
+                {
+}
+            ).addTo(map_e48257553d8339e065fb6ef893d63781);
+        
+    
+            var icon_49683d6eccc8bad25b908e947c8c85c7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "plus-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5c49b1b8fc852e5e70629ee6c64261bf = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_1aedeb36ac7482bb906eb8dbb55a78e3 = $(`<div id="html_1aedeb36ac7482bb906eb8dbb55a78e3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial; min-width: 220px;">         <h4 style="margin-bottom: 8px;">             🏥 Hijaz Hospital Lahore         </h4>          <b>Address:</b><br>         Sir Syed Road, Lahore<br><br>          <b>Hospital Distance:</b>         1.36 km     </div>     </div>`)[0];
+                popup_5c49b1b8fc852e5e70629ee6c64261bf.setContent(html_1aedeb36ac7482bb906eb8dbb55a78e3);
+            
+        
+
+        marker_0a81b2eb2866fc3f8e043db5c3e8516f.bindPopup(popup_5c49b1b8fc852e5e70629ee6c64261bf)
+        ;
+
+        
+    
+    
+            marker_0a81b2eb2866fc3f8e043db5c3e8516f.bindTooltip(
+                `<div>
+                     🏥 Hijaz Hospital Lahore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0a81b2eb2866fc3f8e043db5c3e8516f.setIcon(icon_49683d6eccc8bad25b908e947c8c85c7);
+            
+    
+            var poly_line_ce4a6f3f387bc75ff51d7a917e908a86 = L.polyline(
+                [[31.520403, 74.358708], [31.520392, 74.358714], [31.520097, 74.358804], [31.520082, 74.358695], [31.520293, 74.358629], [31.520469, 74.358548], [31.5207, 74.358406], [31.520784, 74.358329], [31.520956, 74.358136], [31.521841, 74.356974], [31.522558, 74.356024], [31.522885, 74.355563], [31.523, 74.355369], [31.523178, 74.355043], [31.523141, 74.355024], [31.523103, 74.354998], [31.523007, 74.354913], [31.522914, 74.354835], [31.522685, 74.354618], [31.522419, 74.354324], [31.521941, 74.353736], [31.521739, 74.353453], [31.521547, 74.353158], [31.521368, 74.352818], [31.521217, 74.352493], [31.521132, 74.352272], [31.520888, 74.351578], [31.520854, 74.35157], [31.520821, 74.351553], [31.520792, 74.351529], [31.520768, 74.351499], [31.520748, 74.351462], [31.520736, 74.35142], [31.520731, 74.351377], [31.520734, 74.351333], [31.520746, 74.351291], [31.520764, 74.351252], [31.520781, 74.351229], [31.5208, 74.351208], [31.520822, 74.351192], [31.520787, 74.35058], [31.520761, 74.350111], [31.520764, 74.349852], [31.520767, 74.349638], [31.520778, 74.349378], [31.520798, 74.349143], [31.520852, 74.348675], [31.520172, 74.348305], [31.519853, 74.348124], [31.518779, 74.347515], [31.518383, 74.347282], [31.518044, 74.347104], [31.517748, 74.346936], [31.516115, 74.346004], [31.515347, 74.345566]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 7}
+            ).addTo(map_e48257553d8339e065fb6ef893d63781);
+        
+    
+        var popup_3cbd873ca0937ec059133bad071371a3 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_4d9eafde0783b5f85f9f068cc6d65735 = $(`<div id="html_4d9eafde0783b5f85f9f068cc6d65735" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; min-width: 220px;">              <h4 style="margin-bottom: 8px;">                 🚑 Emergency Route 1             </h4>              <b>Road Distance:</b>             1.93 km<br>              <b>Estimated Travel Time:</b>             2.69 minutes          </div>         </div>`)[0];
+                popup_3cbd873ca0937ec059133bad071371a3.setContent(html_4d9eafde0783b5f85f9f068cc6d65735);
+            
+        
+
+        poly_line_ce4a6f3f387bc75ff51d7a917e908a86.bindPopup(popup_3cbd873ca0937ec059133bad071371a3)
+        ;
+
+        
+    
+    
+            poly_line_ce4a6f3f387bc75ff51d7a917e908a86.bindTooltip(
+                `<div>
+                     🚑 Route 1 | 1.93 km | 2.69 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            map_e48257553d8339e065fb6ef893d63781.fitBounds(
+                [[31.5204, 74.3587], [31.5153125, 74.3456471]],
+                {"padding": [40, 40]}
+            );
+        
+</script>
+</html>

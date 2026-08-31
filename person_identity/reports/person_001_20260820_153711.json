@@ -1,0 +1,20 @@
+{
+  "person_id": "person_001",
+  "query_photo": "D:\\AI_Tracking_System\\person_identity\\test_images\\person001_new.jpeg",
+  "scanned_at": "2026-08-20 15:37:11",
+  "videos_scanned": 2,
+  "threshold": 0.38,
+  "found_in_current_scan": true,
+  "matches": [
+    {
+      "camera": "Camera_01",
+      "video": "D:\\AI_Tracking_System\\assets\\Camera_01\\Traffic1.mp4",
+      "frame_number": 30,
+      "seconds_into_video": 1.0,
+      "time_into_video": "0:00:01",
+      "real_datetime": null,
+      "similarity": 0.6927
+    }
+  ],
+  "last_known_sighting_previous": null
+}
