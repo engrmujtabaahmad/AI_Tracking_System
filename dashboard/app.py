@@ -1596,6 +1596,7 @@ if mode == "🏠 Dashboard":
 # VEHICLE SEARCH
 # ============================================================
 
+
 elif mode == "🚗 Vehicle / Number Plate":
 
     st.header(
