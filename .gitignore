@@ -175,3 +175,8 @@ faiss_db/
 *.secret
 secrets.json
 config.local.*
+# Personal / Identifiable Photos
+person_identity/persons/
+person_identity/debug_crops/
+assets/uploaded_references/
+assets/reid_evidence/
