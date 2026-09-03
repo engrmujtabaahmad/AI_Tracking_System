@@ -81,7 +81,7 @@ def create_route_map(
         width="100%",
         height="100%",
         control_scale=True,
-        tiles="CartoDB positron"
+        tiles="OpenStreetMap"
     )
 
     # ========================================================
